@@ -18,6 +18,16 @@ class _LoginViewState extends State<LoginView> {
   FocusNode emailFocusNode = FocusNode();
   FocusNode passwordFocusNode = FocusNode();
   @override
+  void dispose() {
+    _passwordController.dispose();
+    _emailController.dispose();
+    passwordFocusNode.dispose();
+    emailFocusNode.dispose();
+    _obsecuredPassword.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
     return Scaffold(
